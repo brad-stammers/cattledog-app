@@ -14,6 +14,8 @@ RSpec.describe "/videos", type: :request do
     it "renders a successful response" do
       video = FactoryBot.create :video
       get videos_url
+      json = JSON.parse(response.body)
+      
       expect(response).to be_successful
     end
   end
@@ -22,6 +24,8 @@ RSpec.describe "/videos", type: :request do
     it "renders a successful response" do
       video = FactoryBot.create :video
       get video_url(video)
+      json = JSON.parse(response.body)
+      expect(json['title']).to eq(video.title)
       expect(response).to be_successful
     end
   end
@@ -49,10 +53,6 @@ RSpec.describe "/videos", type: :request do
         }.to change(Video, :count).by(1)
       end
 
-      it "redirects to the created video" do
-        post videos_url, params: { video: valid_attributes }
-        expect(response).to redirect_to(video_url(Video.last))
-      end
     end
 
     context "with invalid parameters" do
@@ -84,12 +84,6 @@ RSpec.describe "/videos", type: :request do
         expect(video.rating).to eq('M')
       end
 
-      it "redirects to the video" do
-        video = FactoryBot.create :video
-        patch video_url(video), params: { video: new_attributes }
-        video.reload
-        expect(response).to redirect_to(video_url(video))
-      end
     end
 
     context "with invalid parameters" do
@@ -111,10 +105,5 @@ RSpec.describe "/videos", type: :request do
       }.to change(Video, :count).by(-1)
     end
 
-    it "redirects to the videos list" do
-      video = FactoryBot.create :video
-      delete video_url(video)
-      expect(response).to redirect_to(videos_url)
-    end
   end
 end
