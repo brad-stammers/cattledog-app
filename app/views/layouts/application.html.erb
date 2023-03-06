@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CattledogApp</title>
+    <title>CattleDog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +13,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+      <main role='main'>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
