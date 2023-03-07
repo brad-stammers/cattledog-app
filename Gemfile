@@ -28,8 +28,9 @@ gem 'react-rails'
 gem 'rspec-rails'
 gem 'shoulda-matchers'
 gem 'factory_bot_rails'
-gem 'bootstrap'
-gem 'font-awesome-rails'
+# gem 'bootstrap'
+# gem 'font-awesome-rails'
+gem 'semantic-ui-sass'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

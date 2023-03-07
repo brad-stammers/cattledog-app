@@ -1,21 +1,28 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Video from "./Video"
 class VideoIndex extends React.Component {
   render () {
     var videos = this.props.videos.map((video) => {
       return(
-        <tr key={video.id}>
-          <td><strong>{video.title}</strong></td>
-          <td>{video.genre}</td>
+        <tr key={video.id} scope="row">
+          <Video video={video} handleDelete={this.props.handleDelete} handleUpdate={this.props.handleUpdate} />
         </tr>
       )
     })
     return (
       <React.Fragment>
-        <table>
+        <table class="ui celled table">
           <thead>
-            <th>Title</th>
-            <th>Genre</th>
+            <tr>
+              <th>Title</th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Rating</th>
+              <th>Format</th>
+              <th>Location</th>
+              <th></th>
+            </tr>
           </thead>
           <tbody>
             {videos}
