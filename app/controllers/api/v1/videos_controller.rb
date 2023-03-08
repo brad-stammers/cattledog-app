@@ -16,6 +16,7 @@ class Api::V1::VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
+    render json: @video
   end
 
   # GET /videos/1/edit
