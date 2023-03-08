@@ -12,7 +12,7 @@ class AddVideoModal extends React.Component {
           <Header content="New Video" />
           <Modal.Content>
             <Form onSubmit={(e) => {
-              this.props.handleFormSubmit(formFields.title.value, formFields.desc.value, formFields.year.value, formFields.rating.value, formFields.format.value, formFields.location.value);
+              this.props.handleFormSubmit(formFields.title.value, formFields.genre.value, formFields.year.value, formFields.rating.value, formFields.format.value, formFields.location.value);
               e.target.reset();
             }}>
               <div class="field">

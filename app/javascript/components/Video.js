@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import ShowEditVideoModal from "./ShowEditVideoModal"
 class Video extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +25,7 @@ class Video extends React.Component {
           <button onClick={this.showModal} class="ui teal small button">Show</button>
           <button onClick={() => this.props.handleDelete(this.props.video.id)}  class="ui small button">Delete</button>
         </td>
+        <ShowEditVideoModal visible={this.state.show_visible} handleCancel={this.handleCancel} handleUpdate={this.props.handleUpdate} video={this.props.video} />
       </React.Fragment>
     );
   }
