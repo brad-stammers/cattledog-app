@@ -25,11 +25,7 @@ class AddVideoModal extends React.Component {
     let season = e.target.season.value;
     let digital_copy = this.state.digital_state;
     let digital_copy_location = this.state.digital_location_state;
-    // let id = this.props.video.id;
-    // let video = { id: id, title: title, video_type: video_type, genre: genre, year: year, season: season, rating: rating, format: format, location: location, digital_copy: digital_copy, digital_copy_location: digital_copy_location };
     this.props.handleFormSubmit(title, video_type, genre, year, season, rating, format, location, digital_copy, digital_copy_location);
-    //   this.props.handleCancel();
-    // this.setState({ editable: !this.state.editable });
   }
   handleGenreChange(e, {value}) {
     this.setState({ genre_state: value})
