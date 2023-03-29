@@ -17,13 +17,16 @@ class ShowEditVideoModal extends React.Component {
     e.preventDefault();
     if (this.state.editable) {
       let title = e.target.title.value;
+      let video_type = this.state.type_state;
       let genre = this.state.genre_state;
       let year = e.target.year.value;
+      let season = "";
+      if (video_type != "Movie") {
+        season = e.target.season.value;
+      }
       let rating = e.target.rating.value;
       let format = this.state.format_state;
       let location = e.target.location.value;
-      let video_type = this.state.type_state;
-      let season = e.target.season.value;
       let digital_copy = this.state.digital_state;
       let digital_copy_location = this.state.digital_location_state;
       let id = this.props.video.id;
@@ -94,6 +97,7 @@ class ShowEditVideoModal extends React.Component {
     let location = this.state.editable ? <input type="text" name="location" ref={input => formFields.location = input} defaultValue={this.props.video.location} /> : <h5>{this.props.video.location}</h5>;
     let digital_copy = this.state.editable ? <Checkbox name="digital_copy" fitted toggle label='Digital Copy' defaultChecked={this.props.video.digital_copy} onChange={(event, data) => this.handleDigitalChange(event, data)} /> : <Checkbox name="digital_copy" placeholder='Digital Copy' fitted toggle label='Digital Copy' defaultChecked={this.props.video.digital_copy} disabled />;
     let digital_location = this.state.editable ? <Dropdown name="digital_copy_location" placeholder='Digital Copy Location' fluid multiple selection options={digitalOptions} defaultValue={this.props.video.digital_copy_location} onChange={this.handleDigitalLocationChange} /> : <div>{dsp_digital_location}</div>;
+    let dsp_season = this.state.type_state != "Movie" ? <div class="field"><label>Season</label><div class="seven wide field"><div class="ui input">{season}</div></div></div> : null;
     return (
       <React.Fragment>
       <Modal open={this.props.visible} size="small">
@@ -119,17 +123,12 @@ class ShowEditVideoModal extends React.Component {
                 </div>
               </div>
               <div class="field">
-                <label>Season</label>
-                <div class="seven wide field">
-                  <div class="ui input">{season}</div>
-                </div>
-              </div>
-              <div class="field">
                 <label>Year</label>
                 <div class="seven wide field">
                   <div class="ui input">{year}</div>
                 </div>
               </div>
+              {dsp_season}
               <div class="field">
                 <label>Rating</label>
                 <div class="seven wide field">

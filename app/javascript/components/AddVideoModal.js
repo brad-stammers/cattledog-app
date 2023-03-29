@@ -22,7 +22,10 @@ class AddVideoModal extends React.Component {
     let format = this.state.format_state;
     let location = e.target.location.value;
     let video_type = this.state.type_state;
-    let season = e.target.season.value;
+    let season = "";
+    if (video_type != "Movie") {
+      season = e.target.season.value;
+    }
     let digital_copy = this.state.digital_state;
     let digital_copy_location = this.state.digital_location_state;
     this.props.handleFormSubmit(title, video_type, genre, year, season, rating, format, location, digital_copy, digital_copy_location);
@@ -69,6 +72,7 @@ class AddVideoModal extends React.Component {
       { key: 'iTunes', text: 'iTunes', value: 'iTunes' },
       { key: 'Google Play', text: 'Google Play', value: 'Google Play' },
     ];
+    let dsp_season = this.state.type_state != "Movie" ? <div class="field"><label>Season</label><div class="seven wide field"><div class="ui input"><input type="text" name="season" ref={input => formFields.season = input} placeholder="Season" /></div></div></div> : null;
     return (
       <React.Fragment>
         <Modal open={this.props.visible} size="small">
@@ -95,12 +99,6 @@ class AddVideoModal extends React.Component {
                   <div class="ui input">
                     <Dropdown name="genre" placeholder='Genre' fluid multiple selection options={genreOptions} onChange={this.handleGenreChange} />
                   </div>
-                </div>
-              </div>
-              <div class="field">
-                <label>Season</label>
-                <div class="seven wide field">
-                  <div class="ui input"><input type="text" name="season" ref={input => formFields.season = input} placeholder="Season" /></div>
                 </div>
               </div>
               <div class="field">
