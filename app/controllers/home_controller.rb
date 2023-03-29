@@ -4,4 +4,10 @@ class HomeController < ApplicationController
 
   def video
   end
+
+  def login
+  end
+
+  def signup
+  end
 end
