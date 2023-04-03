@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-
+  helper_method :logged_in?
   skip_before_action :verify_authenticity_token
   def secret_key
     "dRgUkXp2s5v8y/B?D(G+KbPeShVmYq3t"

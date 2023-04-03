@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get "/videos", to: "home#videos"
-  
+  get "/welcome", to: "home#welcome"
+
   resources :users, only: [:create, :show, :index]
   namespace :api do
     namespace :v1 do

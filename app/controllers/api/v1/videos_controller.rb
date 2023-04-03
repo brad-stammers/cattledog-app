@@ -3,8 +3,8 @@ class Api::V1::VideosController < ApplicationController
 
   # GET /videos or /videos.json
   def index
-    @videos = Video.all
-    render json: @videos
+      @videos = Video.all
+      render json: @videos
   end
 
   # GET /videos/1 or /videos/1.json
