@@ -75,13 +75,13 @@ class ShowEditGameModal extends React.Component {
     let dsp_genre = this.props.game.genre.map((genre) =>
       <div class="ui small grey horizontal label">{genre}</div>
     );
-    let title = this.state.editable ? <input type="text" name="title" ref={input => formFields.title = input} defaultValue={this.props.game.title} /> : <h5>{this.props.game.title}</h5>;
-    let genre = this.state.editable ? <Dropdown name="genre" placeholder='Genre' fluid multiple selection options={genreOptions} defaultValue={this.props.game.genre} onChange={this.handleGenreChange} /> : <div>{dsp_genre}</div>;
-    let platform = this.state.editable ? <Dropdown name="platform" placeholder='Type' fluid selection options={platformOptions} defaultValue={this.props.game.platform} onChange={this.handlePlatformChange} /> : <div class="ui input"><h5>{this.props.game.platform}</h5></div>;
-    let media = this.state.editable ? <Dropdown name="media" placeholder='Format' fluid selection options={mediaOptions} defaultValue={this.props.game.media} onChange={this.handleMediaChange} /> : <div class="ui input"><h5>{this.props.game.media}</h5></div>;
-    let publisher = this.state.editable ? <input type="text" name="publisher" ref={input => formFields.publisher = input} defaultValue={this.props.game.publisher} /> : <h5>{this.props.game.publisher}</h5>;
-    let rating = this.state.editable ? <input type="text" name="rating" ref={input => formFields.rating = input} defaultValue={this.props.game.rating} /> : <h5>{this.props.game.rating}</h5>;
-    let vr = this.state.editable ? <Checkbox name="vr" fitted toggle label='VR' defaultChecked={this.props.game.vr} onChange={(event, data) => this.handleVrChange(event, data)} /> : <Checkbox name="vr" placeholder='VR' fitted toggle label='VR' defaultChecked={this.props.game.vr} disabled />;
+    let title = this.state.editable ? <div class="ui input"><input type="text" name="title" ref={input => formFields.title = input} defaultValue={this.props.game.title} /></div> : <div class="ui disabled input">{this.props.game.title}</div>;
+    let genre = this.state.editable ? <div class="ui input"><Dropdown name="genre" placeholder='Genre' fluid multiple selection options={genreOptions} defaultValue={this.props.game.genre} onChange={this.handleGenreChange} /></div> : <div class="ui input">{dsp_genre}</div>;
+    let platform = this.state.editable ? <div class="ui input"><Dropdown name="platform" placeholder='Type' fluid selection options={platformOptions} defaultValue={this.props.game.platform} onChange={this.handlePlatformChange} /></div> : <div class="ui disabled input">{this.props.game.platform}</div>;
+    let media = this.state.editable ? <div class="ui input"><Dropdown name="media" placeholder='Format' fluid selection options={mediaOptions} defaultValue={this.props.game.media} onChange={this.handleMediaChange} /></div> : <div class="ui disabled input">{this.props.game.media}</div>;
+    let publisher = this.state.editable ? <div class="ui input"><input type="text" name="publisher" ref={input => formFields.publisher = input} defaultValue={this.props.game.publisher} /></div> : <div class="ui disabled input">{this.props.game.publisher}</div>;
+    let rating = this.state.editable ? <div class="ui input"><input type="text" name="rating" ref={input => formFields.rating = input} defaultValue={this.props.game.rating} /></div> : <div class="ui disabled input">{this.props.game.rating}</div>;
+    let vr = this.state.editable ? <div class="ui input"><Checkbox name="vr" fitted toggle label='VR' defaultChecked={this.props.game.vr} onChange={(event, data) => this.handleVrChange(event, data)} /></div> : <Checkbox name="vr" placeholder='VR' fitted toggle label='VR' defaultChecked={this.props.game.vr} disabled />;
     return (
       <React.Fragment>
         <Modal open={this.props.visible} size="small">
@@ -91,43 +91,43 @@ class ShowEditGameModal extends React.Component {
               <div class="field">
                 <label>Title</label>
                 <div class="seven wide field">
-                  <div class="ui input">{title}</div>
+                  {title}
                 </div>
               </div>
               <div class="field">
                 <label>Genre</label>
                 <div class="seven wide field">
-                  <div class="ui input">{genre}</div>
+                  {genre}
                 </div>
               </div>
               <div class="field">
                 <label>Platform</label>
                 <div class="seven wide field">
-                  <div class="ui input">{platform}</div>
+                  {platform}
                 </div>
               </div>
               <div class="field">
                 <label>Media</label>
                 <div class="seven wide field">
-                  <div class="ui input">{media}</div>
+                  {media}
                 </div>
               </div>
               <div class="field">
                 <label>Publisher</label>
                 <div class="seven wide field">
-                  <div class="ui input">{publisher}</div>
+                  {publisher}
                 </div>
               </div>
               <div class="field">
                 <label>Rating</label>
                 <div class="seven wide field">
-                  <div class="ui input">{rating}</div>
+                  {rating}
                 </div>
               </div>
               <div class="field">
                 <label></label>
                 <div class="seven wide field">
-                  <div class="ui input">{vr}</div>
+                  {vr}
                 </div>
               </div>
               <Button negative type="button" icon="remove" labelPosition="right" onClick={this.props.handleCancel} content="Cancel" />

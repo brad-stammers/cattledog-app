@@ -87,16 +87,16 @@ class ShowEditVideoModal extends React.Component {
     let dsp_digital_location = this.props.video.digital_copy_location.map((digital_location) =>
       <div class="ui small grey horizontal label">{digital_location}</div>
     );
-    let title = this.state.editable ? <input type="text" name="title" ref={input => formFields.title = input} defaultValue={this.props.video.title} /> : <h5>{this.props.video.title}</h5>;
-    let video_type = this.state.editable ? <Dropdown name="video_type" placeholder='Type' fluid selection options={typeOptions} defaultValue={this.props.video.video_type} onChange={this.handleTypeChange} /> : <div class="ui input"><h5>{this.props.video.video_type}</h5></div>;
-    let genre = this.state.editable ? <Dropdown name="genre" placeholder='Genre' fluid multiple selection options={genreOptions} defaultValue={this.props.video.genre} onChange={this.handleGenreChange} /> : <div>{dsp_genre}</div>;
-    let year = this.state.editable ? <input type="text" name="year" ref={input => formFields.year = input} defaultValue={this.props.video.year} /> : <h5>{this.props.video.year}</h5>;
-    let rating = this.state.editable ? <input type="text" name="rating" ref={input => formFields.rating = input} defaultValue={this.props.video.rating} /> : <h5>{this.props.video.rating}</h5>;
-    let format = this.state.editable ? <Dropdown name="format" placeholder='Format' fluid multiple selection options={formatOptions} defaultValue={this.props.video.format} onChange={this.handleFormatChange} /> : <div>{dsp_format}</div>;
-    let season = this.state.editable ? <input type="text" name="season" ref={input => formFields.season = input} defaultValue={this.props.video.season} /> : <h5>{this.props.video.season}</h5>;
-    let location = this.state.editable ? <input type="text" name="location" ref={input => formFields.location = input} defaultValue={this.props.video.location} /> : <h5>{this.props.video.location}</h5>;
-    let digital_copy = this.state.editable ? <Checkbox name="digital_copy" fitted toggle label='Digital Copy' defaultChecked={this.props.video.digital_copy} onChange={(event, data) => this.handleDigitalChange(event, data)} /> : <Checkbox name="digital_copy" placeholder='Digital Copy' fitted toggle label='Digital Copy' defaultChecked={this.props.video.digital_copy} disabled />;
-    let digital_location = this.state.editable ? <Dropdown name="digital_copy_location" placeholder='Digital Copy Location' fluid multiple selection options={digitalOptions} defaultValue={this.props.video.digital_copy_location} onChange={this.handleDigitalLocationChange} /> : <div>{dsp_digital_location}</div>;
+    let title = this.state.editable ? <div class="ui input"><input type="text" name="title" ref={input => formFields.title = input} defaultValue={this.props.video.title} /></div> : <div class="ui disabled input">{this.props.video.title}</div>;
+    let video_type = this.state.editable ? <div class="ui input"><Dropdown name="video_type" placeholder='Type' fluid selection options={typeOptions} defaultValue={this.props.video.video_type} onChange={this.handleTypeChange} /></div> : <div class="ui disabled input">{this.props.video.video_type}</div>;
+    let genre = this.state.editable ? <div class="ui input"><Dropdown name="genre" placeholder='Genre' fluid multiple selection options={genreOptions} defaultValue={this.props.video.genre} onChange={this.handleGenreChange} /></div> : <div>{dsp_genre}</div>;
+    let year = this.state.editable ? <div class="ui input"><input type="text" name="year" ref={input => formFields.year = input} defaultValue={this.props.video.year} /></div> : <div class="ui disabled input">{this.props.video.year}</div>;
+    let rating = this.state.editable ? <div class="ui input"><input type="text" name="rating" ref={input => formFields.rating = input} defaultValue={this.props.video.rating} /></div> : <div class="ui disabled input">{this.props.video.rating}</div>;
+    let format = this.state.editable ? <div class="ui input"><Dropdown name="format" placeholder='Format' fluid multiple selection options={formatOptions} defaultValue={this.props.video.format} onChange={this.handleFormatChange} /></div> : <div>{dsp_format}</div>;
+    let season = this.state.editable ? <div class="ui input"><input type="text" name="season" ref={input => formFields.season = input} defaultValue={this.props.video.season} /></div> : <div class="ui disabled input">{this.props.video.season}</div>;
+    let location = this.state.editable ? <div class="ui input"><input type="text" name="location" ref={input => formFields.location = input} defaultValue={this.props.video.location} /></div> : <div class="ui disabled input">{this.props.video.location}</div>;
+    let digital_copy = this.state.editable ? <div class="ui input"><Checkbox name="digital_copy" fitted toggle label='Digital Copy' defaultChecked={this.props.video.digital_copy} onChange={(event, data) => this.handleDigitalChange(event, data)} /></div> : <Checkbox name="digital_copy" placeholder='Digital Copy' fitted toggle label='Digital Copy' defaultChecked={this.props.video.digital_copy} disabled />;
+    let digital_location = this.state.editable ? <div class="ui input"><Dropdown name="digital_copy_location" placeholder='Digital Copy Location' fluid multiple selection options={digitalOptions} defaultValue={this.props.video.digital_copy_location} onChange={this.handleDigitalLocationChange} /></div> : <div>{dsp_digital_location}</div>;
     let dsp_season = this.state.type_state != "Movie" ? <div class="field"><label>Season</label><div class="seven wide field"><div class="ui input">{season}</div></div></div> : null;
     return (
       <React.Fragment>
@@ -107,56 +107,56 @@ class ShowEditVideoModal extends React.Component {
               <div class="field">
                 <label>Title</label>
                 <div class="seven wide field">
-                  <div class="ui input">{title}</div>
+                  {title}
                 </div>
               </div>
               <div class="field">
                 <label>Type</label>
                 <div class="seven wide field">
-                  <div class="ui input">{video_type}</div>
+                  {video_type}
                 </div>
               </div>
               <div class="field">
                 <label>Genre</label>
                 <div class="seven wide field">
-                  <div class="ui input">{genre}</div>
+                  {genre}
                 </div>
               </div>
               <div class="field">
                 <label>Year</label>
                 <div class="seven wide field">
-                  <div class="ui input">{year}</div>
+                  {year}
                 </div>
               </div>
               {dsp_season}
               <div class="field">
                 <label>Rating</label>
                 <div class="seven wide field">
-                  <div class="ui input">{rating}</div>
+                  {rating}
                 </div>
               </div>
               <div class="field">
                 <label>Format</label>
                 <div class="seven wide field">
-                  <div class="ui input">{format}</div>
+                  {format}
               </div>
               </div>
               <div class="field">
                 <label>Location</label>
                 <div class="seven wide field">
-                  <div class="ui input">{location}</div>
+                  {location}
                 </div>
               </div>
               <div class="field">
                 <label></label>
                 <div class="seven wide field">
-                  <div class="ui input">{digital_copy}</div>
+                  {digital_copy}
                 </div>
               </div>
               <div class="field">
                 <label>Digital Copy Location</label>
                 <div class="seven wide field">
-                  <div class="ui input">{digital_location}</div>
+                  {digital_location}
                 </div>
               </div>
               <Button negative type="button" icon="remove" labelPosition="right" onClick={this.props.handleCancel} content="Cancel" />

@@ -54,14 +54,14 @@ class ShowEditBookModal extends React.Component {
     let dsp_format = this.props.book.format.map((format) =>
       <div class="ui small grey horizontal label">{format}</div>
     );
-    let title = this.state.editable ? <input type="text" name="title" ref={input => formFields.title = input} defaultValue={this.props.book.title} /> : <h5>{this.props.book.title}</h5>;
-    let author = this.state.editable ? <input type="text" name="author" ref={input => formFields.author = input} defaultValue={this.props.book.title} /> : <h5>{this.props.book.title}</h5>;
-    let genre = this.state.editable ? <Dropdown name="genre" placeholder='Genre' fluid selection options={genreOptions} defaultValue={this.props.book.genre} onChange={this.handleGenreChange} /> : <div>{this.props.book.genre}</div>;
-    let series = this.state.editable ? <input type="text" name="series" ref={input => formFields.series = input} defaultValue={this.props.book.series} /> : <h5>{this.props.book.series}</h5>;
-    let book_no = this.state.editable ? <input type="text" name="book_no" ref={input => formFields.book_no = input} defaultValue={this.props.book.book_no} /> : <h5>{this.props.book.book_no}</h5>;
-    let format = this.state.editable ? <Dropdown name="format" placeholder='Format' fluid multiple selection options={formatOptions} defaultValue={this.props.book.format} onChange={this.handleFormatChange} /> : <div>{dsp_format}</div>;
-    let location = this.state.editable ? <input type="text" name="location" ref={input => formFields.location = input} defaultValue={this.props.book.location} /> : <h5>{this.props.book.location}</h5>;
-    let isbn = this.state.editable ? <input type="text" name="isbn" ref={input => formFields.isbn = input} defaultValue={this.props.book.isbn} /> : <h5>{this.props.book.isbn}</h5>;
+    let title = this.state.editable ? <div class="ui input"><input type="text" name="title" ref={input => formFields.title = input} defaultValue={this.props.book.title} /></div> : <div class="ui disabled input">{this.props.book.title}</div>;
+    let author = this.state.editable ? <div class="ui input"><input type="text" name="author" ref={input => formFields.author = input} defaultValue={this.props.book.title} /></div> : <div class="ui disabled input">{this.props.book.title}</div>;
+    let genre = this.state.editable ? <div class="ui input"><Dropdown name="genre" placeholder='Genre' fluid selection options={genreOptions} defaultValue={this.props.book.genre} onChange={this.handleGenreChange} /></div> : <div class="ui disabled input">{this.props.book.genre}</div>;
+    let series = this.state.editable ? <div class="ui input"><input type="text" name="series" ref={input => formFields.series = input} defaultValue={this.props.book.series} /></div> : <div class="ui disabled input">{this.props.book.series}</div>;
+    let book_no = this.state.editable ? <div class="ui input"><input type="text" name="book_no" ref={input => formFields.book_no = input} defaultValue={this.props.book.book_no} /></div> : <div class="ui disabled input">{this.props.book.book_no}</div>;
+    let format = this.state.editable ? <div class="ui input"><Dropdown name="format" placeholder='Format' fluid multiple selection options={formatOptions} defaultValue={this.props.book.format} onChange={this.handleFormatChange} /></div> : <div>{dsp_format}</div>;
+    let location = this.state.editable ? <div class="ui input"><input type="text" name="location" ref={input => formFields.location = input} defaultValue={this.props.book.location} /></div> : <div class="ui disabled input">{this.props.book.location}</div>;
+    let isbn = this.state.editable ? <div class="ui input"><input type="text" name="isbn" ref={input => formFields.isbn = input} defaultValue={this.props.book.isbn} /></div> : <div class="ui disabled input">{this.props.book.isbn}</div>;
     return (
       <React.Fragment>
         <Modal open={this.props.visible} size="small">
