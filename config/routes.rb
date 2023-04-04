@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get "/videos", to: "home#videos"
   get "/books", to: "home#books"
+  get "/games", to: "home#games"
   get "/welcome", to: "home#welcome"
 
   resources :users, only: [:create, :show, :index]
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :videos
       resources :books
-
+      resources :games
     end
   end
 end
