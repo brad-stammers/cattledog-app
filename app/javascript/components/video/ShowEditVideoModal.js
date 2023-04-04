@@ -100,8 +100,8 @@ class ShowEditVideoModal extends React.Component {
     let dsp_season = this.state.type_state != "Movie" ? <div class="field"><label>Season</label><div class="seven wide field"><div class="ui input">{season}</div></div></div> : null;
     return (
       <React.Fragment>
-      <Modal open={this.props.visible} size="small">
-        <Header content="Edit Video" />
+        <Modal open={this.props.visible} size="small">
+          <Header content="Edit Video" />
           <Modal.Content>
             <Form onSubmit={this.handleEdit}>
               <div class="field">

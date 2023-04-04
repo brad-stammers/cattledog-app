@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import VideoContainer from "./VideoContainer"
+import VideoContainer from "./video/VideoContainer"
 class Main extends React.Component {
   render () {
     return (
